@@ -1,0 +1,12 @@
+.panel {
+  min-height: 300px;
+}
+
+#remove-message:hover {
+  cursor: pointer;
+}
+
+#messages {
+  height: 90px;
+  overflow-y: scroll;
+}

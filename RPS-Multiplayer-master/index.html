@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>RPS-Multiplayer</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/cerulean/bootstrap.min.css" rel="stylesheet" integrity="sha384-zF4BRsG/fLiTGfR9QL82DrilZxrwgY/+du4p/c7J72zZj+FLYq4zY00RylP9ZjiT" crossorigin="anonymous">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.16.0/moment.min.js" integrity="sha256-cPV18mnKeXm349/LJ+fcY51Ts2ygt+cWpZCzc3YzEus=" crossorigin="anonymous"></script>
+    <script src="https://www.gstatic.com/firebasejs/3.6.0/firebase.js"></script>
+    <script type="text/javascript" src="assets/javascript/app.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row" id="entrance">
+            <div class="col-xs-0 col-md-2"></div>
+            <div class="col-xs-12 col-md-8">
+                <h1>Welcome to Rock, Paper, Scissors Multiplayer!</h1>
+                <form class="form">
+                    <div class="form-group">
+                        <label for="username">Please enter your User Name!</label>
+                        <input type="text" id="username" class="form-control">
+                    </div>
+                    <button class="btn btn-primary" id="submit">Submit</button>
+                </form>
+            </div>
+            <div class="col-xs-0 col-md-2"></div>
+        </div>
+        <div class="container" id="gameplay">
+            <div class="jumbotron">
+                <h1>Rock, Paper, Scissor Multiplayer!</h1>
+            </div>
+            <div class="alert alert-success" id="welcome"><span id="welcome-message"></span><span class="pull-right" id="remove-message">X</span></div>
+            <div>
+                <button class="btn btn-info" id="new-game">Find new opponent</button>
+            </div>
+            <br />
+            <div class="row">
+                <div class="col-xs-12 col-sm-4">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h2 class="panel-title" id="current-player"></h2>
+                        </div>
+                        <div class="panel-body">
+                            <p class="text-success lead">
+                                <span><strong>Wins: </strong></span>
+                                <span id="current-wins"></span>
+                            </p>
+                            <p class="text-danger lead">
+                                <span><strong>Losses: </strong></span>
+                                <span id="current-losses"></span>
+                            </p>
+                            <button class="btn btn-secondary choice">Rock</button>
+                            <button class="btn btn-secondary choice">Paper</button>
+                            <button class="btn btn-secondary choice">Scissors</button>
+                            <h3 id="current-choice">Please make a choice</h3>
+                            <h4 id="current-result"></h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-4">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h2 class="panel-title">Messaging</h2>
+                        </div>
+                        <div class="panel-body">
+                            <div class="well" id="messages"></div>
+                            <form class="form">
+                                <div class="form-group">
+                                    <label for="message">Message:</label>
+                                    <input type="text" class="form-control" id="message">
+                                </div>
+                                <button class="btn btn-secondary" id="send-message">Send</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-4">
+                    <div class="alert alert-warning" id="waiting-on-player">
+                        We are waiting for another player to join the game
+                    </div>
+                    <div class="panel panel-default" id="other-player-panel">
+                        <div class="panel-heading">
+                            <h2 class="panel-title" id="other-player"></h2>
+                        </div>
+                        <div class="panel-body">
+                            <p class="text-success lead">
+                                <span><strong>Wins: </strong></span>
+                                <span id="other-wins"></span>
+                            </p>
+                            <p class="text-danger lead">
+                                <span><strong>Losses: </strong></span>
+                                <span id="other-losses"></span>
+                            </p>
+                            <h3 id="other-choice">Waiting on other player to choose</h3>
+                            <h4 id="other-result"></h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
